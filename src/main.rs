@@ -24,20 +24,9 @@ fn main() {
 }
 
 fn f(n: isize) -> isize {
-    let n = n.abs();
-    if n < 2 {
-        return n;
+    if n <= 1 {
+        n
     } else {
-        let mut p2 = 0;
-        let mut p1 = 1;
-        let mut current = 0;
-
-        for _ in 2..=n {
-            current = p1 + p2;
-            p2 = p1;
-            p1 = current;
-        }
-
-        return current;
+        f(n - 1) + f(n - 2)
     }
 }
